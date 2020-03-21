@@ -1,1 +1,40 @@
+#+title: Python module for setting up dft-book tutorials
 
+Zack Ulissi figured out how to install Quantum Espresso in a colab notebook. Here we develop a python library to make this as simple as::
+
+#+BEGIN_SRC ipython
+!pip install dftbook
+import dftbook
+dftbook.setup_colab()
+#+END_SRC
+
+Here are the notebook commands Zack used to set it up.
+
+#+BEGIN_SRC ipython
+#Install QE, ase and ase-espresso
+!apt-get install quantum-espresso
+!pip install ase
+
+# forked version to fix some uuid bugs
+!pip install --upgrade git+git://github.com/ulissigroup/ase-espresso
+
+
+#Get the GBRV pseudopotentials and extract
+!mkdir gbrv_pseudopotentials
+!wget -P ./gbrv_pseudopotentials/ https://www.physics.rutgers.edu/gbrv/all_pbe_UPF_v1.5.tar.gz
+!tar xf gbrv_pseudopotentials/all_pbe_UPF_v1.5.tar.gz -C ./gbrv_pseudopotentials/
+
+#Rename the GBRV pseudopotentials to Cu.UPF etc
+import glob
+import shutil
+import os
+files = glob.glob('gbrv_pseudopotentials/*_*.UPF')
+for file in files:
+  dir_name = os.path.dirname(file)
+  old_name = os.path.basename(file)
+  new_name = old_name.split('_')[0].capitalize()+'.UPF'
+  shutil.move(dir_name + '/' + old_name,dir_name + '/'+new_name)
+
+#Tell ase-espresso where to get the pseudopotentials
+%env ESP_PSP_PATH=/content/gbrv_pseudopotentials/
+#+END_SRC
