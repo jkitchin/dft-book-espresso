@@ -41,44 +41,29 @@ def setup_colab():
 
     setup_ase_espresso()
 
-    print('Installing quantum espresso')
-    subprocess.run(['apt-get', 'install', 'quantum-espresso'])
+    gpu_colab = os.environ['COLAB_GPU']
 
-    print('Setup is complete. Please visit https://github.com/jkitchin/dft-book-espresso to find the tutorials.')
-    print(f'Installation took {time.time() - t0:1.1f} seconds')
+    if gpu_colab=='1': #we have a gpu
+        print("Installing MKL")
+        subprocess.run(["sh", "-c", "'echo deb https://apt.repos.intel.com/mkl all main > /etc/apt/sources.list.d/intel-mkl.list'"])
+        subprocess.run(["wget", "https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB"])
+        subprocess.run(["apt-key", "add", "GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB"])
+        subprocess.run(['sh', '-c', "'echo deb https://apt.repos.intel.com/mkl all main > /etc/apt/sources.list.d/intel-mkl.list'"])
+        subprocess.run(['apt', 'update'])
+        subprocess.run(['apt', 'install', 'intel-mkl-2020.0-088'])
 
-def setup_colab_gpu():
-    '''Setup a colab environment with a GPU.
-    You have to manually select a runtime with a GPU and then run this function.
-    '''
-    t0 = time.time()
-    print('Be patient. This usually takes about 30 seconds.')
+        print('Getting the GPU pw.x executable')
+        subprocess.run(['pip', 'install', 'gdown'])
+        url = 'https://drive.google.com/uc?id=1aWPj1yTXENx2tES_CVQxYFqhXQwqoHvI'
+        import gdown
+        gdown.download(url, '/usr/local/bin/pw.x', quiet=True)
+        subprocess.run(['chmod', '+x', '/usr/local/bin/pw.x'])
+        print('Done installing GPU version of Quantum Espresso')
 
-    subprocess.run(['pip', 'install', 'gputil'])
-    import GPUtil
-    GPUs = GPUtil.getGPUs()
-    if len(GPUs) == 0:
-        raise Exception('No GPU found. Did you select a Runtime with a GPU?')
-    print(f'Found {GPUs}')
-
-    setup_ase_espresso()
-
-    print("Installing MKL")
-    subprocess.run(["sh", "-c", "'echo deb https://apt.repos.intel.com/mkl all main > /etc/apt/sources.list.d/intel-mkl.list'"])
-    subprocess.run(["wget", "https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB"])
-    subprocess.run(["apt-key", "add", "GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB"])
-    subprocess.run(['sh', '-c', "'echo deb https://apt.repos.intel.com/mkl all main > /etc/apt/sources.list.d/intel-mkl.list'"])
-    subprocess.run(['apt', 'update'])
-    subprocess.run(['apt', 'install', 'intel-mkl-2020.0-088'])
-
-    print('Getting the GPU pw.x executable')
-    subprocess.run(['pip', 'install', 'gdown'])
-    url = 'https://drive.google.com/uc?id=1aWPj1yTXENx2tES_CVQxYFqhXQwqoHvI'
-    import gdown
-    gdown.download(url, '/usr/local/bin/pw.x', quiet=True)
-    subprocess.run(['chmod', '+x', '/usr/local/bin/pw.x'])
-
-    print('Done installing GPU version of Quantum Espresso')
+    else: #cpu-only colab
+        print('Installing quantum espresso')
+        subprocess.run(['apt-get', 'install', 'quantum-espresso'])
+        
     print('Setup is complete. Please visit https://github.com/jkitchin/dft-book-espresso to find the tutorials.')
     print(f'Installation took {time.time() - t0:1.1f} seconds')
 
