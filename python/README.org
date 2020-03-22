@@ -38,3 +38,15 @@ for file in files:
 #Tell ase-espresso where to get the pseudopotentials
 %env ESP_PSP_PATH=/content/gbrv_pseudopotentials/
 #+END_SRC
+
+
+
+* getting custom pw.x
+
+#+BEGIN_SRC python
+url = 'https://drive.google.com/uc?id=1aWPj1yTXENx2tES_CVQxYFqhXQwqoHvI'
+import gdown
+gdown.download(url, 'pw.x', quiet=True)
+#+END_SRC
+
+#+RESULTS:
