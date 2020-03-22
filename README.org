@@ -5,9 +5,7 @@ The original dft-book was written for VASP. In this project, we are rewriting mo
 
 Google Colab is a free service similar to Jupyter notebooks. Zack Ulissi worked out how to install all the libraries needed to run Quantum Espresso in a Colab notebook. This is not a production DFT service. We don’t know the limitations on how big or how many calculations you can run. The examples in the tutorials have worked for us. We hope they work for you!
 
-Please get in touch if you would like to make contributions, or even give some of the lessons.
 
-March 22, 2020: Pretty soon we are planning to host some live webinars on running these. Stay tuned here or on Twitter for the announcements.
 
 * Topics
 
@@ -20,3 +18,16 @@ March 22, 2020: Pretty soon we are planning to host some live webinars on runnin
 7. Adsorption energies, surface reactions, barriers
 8. Effects of XC functional on these things?
 9. Atomistic thermodynamics
+
+* Schedule
+
+March 22, 2020: Pretty soon we are planning to host some live webinars on running these. Stay tuned here or on Twitter for the announcements.
+
+
+* Contributing
+
+Please get in touch if you would like to make contributions, or even give some of the lessons. There are several ways you can help.
+
+1. Report Bugs/typos/etc in the issue tracker (https://github.com/jkitchin/dft-book-espresso/issues)
+2. Write a notebook and contribute it. You can email it, share it via Gdrive, fork and make a pull request, put it somewhere I can find it and let me know, etc. All I ask is you give me permission to put it here, and make it so everyone can use it the same as everything else here. Try to match the general style here. Odds are high I will do some editing to help with that.
+3. Want to give one of the lectures? Let me know, I would be happy to facilitate that.
