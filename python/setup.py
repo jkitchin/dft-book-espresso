@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='dftbook',
-      version='0.0.3',
+      version='0.0.4',
       description='Module for setting up dft-book tutorials',
       url='http://github.com/jkitchin/dftbook',
       author='John Kitchin, Zack Ulissi',
@@ -17,3 +17,5 @@ setup(name='dftbook',
 # (shell-command "rm -fr build dist dftbook.egg-info")
 # (shell-command "python setup.py sdist bdist_wheel")
 # (shell-command "twine upload dist/*")
+
+# (shell-command "rm -fr build dist dftbook.egg-info && python setup.py sdist bdist_wheel && twine upload dist/*")
