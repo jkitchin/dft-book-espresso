@@ -36,7 +36,7 @@ def setup_colab():
     print('Almost there, setting environment pseudopotential path')
     os.environ['ESP_PSP_PATH'] = '/content/gbrv_pseudopotentials/'
 
-    print('Setup is complete. Please visit https://drive.google.com/drive/folders/1fVOol26JssnCRXv_3EVgsbk3Z5jd60Nl to find the tutorials.')
+    print('Setup is complete. Please visit https://github.com/jkitchin/dft-book-espresso to find the tutorials.')
 
     # import webbrowser
     #  webbrowser.open('https://drive.google.com/drive/folders/1fVOol26JssnCRXv_3EVgsbk3Z5jd60Nl')
