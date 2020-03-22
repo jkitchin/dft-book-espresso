@@ -14,9 +14,9 @@ March 22, 2020: Pretty soon we are planning to host some live webinars on runnin
 1. Intro to ASE - atoms, building them, atoms properties, etc. some visualization of them. [[01-intro-to-ase.ipynb][notebook]]
 2. Calculations on molecules, energy/forces, optimization, including idea of convergence. [[02-molecules.ipynb][notebook]]
 3. Reactions with molecules, reaction energies, barriers
-4. bulk systems, structure calculations, EOS, elastic properties, comparison of bulk phase stability
-5. bulk formation energies, phase diagrams
-6. surface calculations, relaxations, surface energy
-7. adsorption energies, surface reactions, barriers
+4. Bulk systems, structure calculations, EOS, elastic properties, comparison of bulk phase stability
+5. Bulk formation energies, phase diagrams
+6. Surface calculations, relaxations, surface energy
+7. Adsorption energies, surface reactions, barriers
 8. Effects of XC functional on these things?
-9. atomistic thermodynamics
+9. Atomistic thermodynamics
