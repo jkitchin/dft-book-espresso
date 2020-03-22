@@ -1,6 +1,6 @@
 import subprocess
 import time
-
+import os
 
 def setup_ase_espresso():
     print('Installing ASE')
@@ -41,9 +41,7 @@ def setup_colab():
 
     setup_ase_espresso()
 
-    gpu_colab = os.environ['COLAB_GPU']
-
-    if gpu_colab=='1': #we have a gpu
+    if os.environ['COLAB_GPU']=='1': #we have a gpu
         print("Installing MKL")
         subprocess.run(["sh", "-c", "'echo deb https://apt.repos.intel.com/mkl all main > /etc/apt/sources.list.d/intel-mkl.list'"])
         subprocess.run(["wget", "https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB"])
