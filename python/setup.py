@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='dftbook',
-      version='0.0.4',
+      version='0.0.5',
       description='Module for setting up dft-book tutorials',
       url='http://github.com/jkitchin/dftbook',
       author='John Kitchin, Zack Ulissi',
