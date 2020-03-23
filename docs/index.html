@@ -13077,8 +13077,22 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="About-this-project">About this project<a class="anchor-link" href="#About-this-project">&#182;</a></h1><p>The original dft-book was written for VASP. In this project, we are rewriting most of that book for use with Quantum Espresso and Google Colab.</p>
+<h1 id="dft-book-espresso">dft-book <a href="https://www.quantum-espresso.org/">espresso</a><a class="anchor-link" href="#dft-book-espresso">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="About-this-project">About this project<a class="anchor-link" href="#About-this-project">&#182;</a></h1><p>The original dft-book was written for VASP. In this project, we are rewriting most of that book for use with <a href="https://www.quantum-espresso.org/">Quantum Espresso</a>, <a href="https://wiki.fysik.dtu.dk/ase/">ASE</a> and Google Colab.</p>
 <p>Google Colab is a free service similar to Jupyter notebooks. Zack Ulissi worked out how to install all the libraries needed to run Quantum Espresso in a Colab notebook. This is not a production DFT service. We don’t know the limitations on how big or how many calculations you can run. The examples in the tutorials have worked for us. We hope they work for you!</p>
+<p>We have written a small python package <a href="https://github.com/jkitchin/dft-book-espresso/tree/master/python">dftbook</a> that does all the setup in Colab for you, including detecting if a GPU is available to run a faster version of Quantum Espresso!</p>
+<p>In every Colab notebook just add this cell to the top. If you start a GPU runtime, it should give you a faster version of Quantum Espresso.</p>
+
+<pre><code>!pip install --upgrade dftbook
+import dftbook
+dftbook.setup_colab()</code></pre>
+<p>Please report bugs/typos/issues at <a href="https://github.com/jkitchin/dft-book-espresso/issues">https://github.com/jkitchin/dft-book-espresso/issues</a>.</p>
 <h1 id="Topics">Topics<a class="anchor-link" href="#Topics">&#182;</a></h1><ol>
 <li>Intro to ASE - atoms, building them, atoms properties, etc. some visualization of them. <a href="01-intro-to-ase.html">notebook</a></li>
 <li>Calculations on molecules, energy/forces, optimization, including idea of convergence. <a href="02-molecules.html">notebook</a></li>
